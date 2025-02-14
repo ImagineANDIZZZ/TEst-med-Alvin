@@ -8,6 +8,8 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    private Player player;
+    private Texture2D Supermario;
 
     public Game1()
     {
@@ -27,7 +29,7 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        // TODO: use this.Content to load your game content here
+        player = new Player (Supermario,new Vector2(380, 350),50);
     }
 
     protected override void Update(GameTime gameTime)
@@ -44,7 +46,7 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        // TODO: Add your drawing code here
+        player.Draw(_spriteBatch);
 
         base.Draw(gameTime);
     }
