@@ -36,3 +36,6 @@ C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\obj\Debug\net6.0-windows\refint\T
 C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\obj\Debug\net6.0-windows\TEst-med-Alvin.pdb
 C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\obj\Debug\net6.0-windows\TEst-med-Alvin.genruntimeconfig.cache
 C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\obj\Debug\net6.0-windows\ref\TEst-med-Alvin.dll
+C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\supermario.xnb
+C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\grass.xnb
+C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\bakgrundsbild.xnb
