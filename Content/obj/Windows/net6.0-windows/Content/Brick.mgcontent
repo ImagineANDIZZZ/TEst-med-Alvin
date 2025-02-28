@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/Brick.png</SourceFile>
-  <SourceTime>2025-02-14T11:07:47.5096566+01:00</SourceTime>
+  <SourceTime>2025-02-28T10:21:21.5906289+01:00</SourceTime>
   <DestFile>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/bin/Windows/Content/Brick.xnb</DestFile>
-  <DestTime>2025-02-14T11:28:49.3193382+01:00</DestTime>
+  <DestTime>2025-02-28T10:21:36.3889946+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

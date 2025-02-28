@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SharpDX.Direct3D9;
@@ -14,8 +15,10 @@ public class Game1 : Game
     private Texture2D Grass;
     private Platform platform;
     private Texture2D bakgrundsbild;
-    private Texture2D box;
-
+    private Brick box;
+    private Texture2D brick;
+    private List<Brick> boxar = new List<Brick>();
+    
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -37,10 +40,11 @@ public class Game1 : Game
         Grass = Content.Load<Texture2D>("grass");
         player = new Player (Supermario,new Vector2(380, 350),50);
         platform = new Platform (Grass,new Vector2(0, 350),new Vector2(830,130));
+        brick = Content.Load<Texture2D>("Brick");
         bakgrundsbild = Content.Load<Texture2D>("bakgrundsbild");
-        box = Content.Load<Texture2D>("brick");
-        brick = new Brick (Grass,new Vector2(0, 350),new Vector2(830,130));
+        AddBricks();
     }
+    
 
     protected override void Update(GameTime gameTime)
     {
@@ -60,8 +64,17 @@ public class Game1 : Game
         _spriteBatch.Draw(bakgrundsbild, bgRect, Color.White);
         player.Draw(_spriteBatch);
         platform.Draw(_spriteBatch);
+        foreach(Brick b in boxar){
+            b.Draw(_spriteBatch);
+        }
         _spriteBatch.End();
         base.Draw(gameTime);
         
+    }
+
+    private void AddBricks(){
+            boxar.Add(new Brick (brick,new Vector2(250, 150),new Vector2(100,80)));        
+            boxar.Add(new Brick (brick,new Vector2(500, 200),new Vector2(100,80)));   
+            boxar.Add(new Brick (brick,new Vector2(40, 60),new Vector2(100,80)));    
     }
 }
