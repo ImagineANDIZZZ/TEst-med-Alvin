@@ -52,6 +52,7 @@ public class Game1 : Game
             Exit();
 
         player.Update();
+        playerbrickcollision();
 
         base.Update(gameTime);
     }
@@ -77,4 +78,12 @@ public class Game1 : Game
             boxar.Add(new Brick (brick,new Vector2(500, 200),new Vector2(100,80)));   
             boxar.Add(new Brick (brick,new Vector2(40, 60),new Vector2(100,80)));    
     }
+
+    private void playerbrickcollision(){
+        foreach(Brick b in boxar){
+            if(b.Hitbox.Intersects(player.Hitbox)){
+                player.BrickCollision();
+            }
+        }
+    } 
 }

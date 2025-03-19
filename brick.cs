@@ -9,6 +9,9 @@ namespace TEst_med_Alvin
        private Vector2 position;
         private Texture2D texture;
         private Rectangle hitbox; 
+        public Rectangle Hitbox{
+            get{return hitbox;}
+        }
 
          public Brick(Texture2D texture, Vector2 position, Vector2 size){
             this.texture = texture;

@@ -10,6 +10,9 @@ namespace TEst_med_Alvin
         private Vector2 position;
         private Texture2D texture;
         private Rectangle hitbox;
+        public Rectangle Hitbox{
+            get{return hitbox;}
+        }
         const float GRAVITY = 18.4f;
         Vector2 velocity;
         private bool canJump = true;
@@ -50,6 +53,9 @@ namespace TEst_med_Alvin
         }
         public void Draw(SpriteBatch spriteBatch){
             spriteBatch.Draw(texture, hitbox, Color.White);
+        }
+        public void BrickCollision(){
+            velocity.Y = 0;
         }
     }
 }
