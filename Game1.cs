@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 using SharpDX.Direct3D9;
 
 namespace TEst_med_Alvin;
@@ -18,6 +20,8 @@ public class Game1 : Game
     private Brick box;
     private Texture2D brick;
     private List<Brick> boxar = new List<Brick>();
+    Song theme;
+    SoundEffect effect;
     
     public Game1()
     {
@@ -36,6 +40,7 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
+        effect = Content.Load<SoundEffect>("jump_07");
         Supermario = Content.Load<Texture2D>("supermario");
         Grass = Content.Load<Texture2D>("grass");
         player = new Player (Supermario,new Vector2(380, 350),50);
@@ -43,12 +48,14 @@ public class Game1 : Game
         brick = Content.Load<Texture2D>("Brick");
         bakgrundsbild = Content.Load<Texture2D>("bakgrundsbild");
         AddBricks();
+        theme = Content.Load<Song>("theme");
+        MediaPlayer.Play(theme);
     }
     
 
     protected override void Update(GameTime gameTime)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+        if(GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
         player.Update();

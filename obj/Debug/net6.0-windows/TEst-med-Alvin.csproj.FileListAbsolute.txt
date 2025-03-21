@@ -40,3 +40,6 @@ C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\
 C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\grass.xnb
 C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\bakgrundsbild.xnb
 C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\Brick.xnb
+c:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\theme.wma
+c:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\theme.xnb
+C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\jump_07.xnb

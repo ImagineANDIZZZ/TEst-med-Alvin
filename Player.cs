@@ -23,10 +23,8 @@ namespace TEst_med_Alvin
             hitbox = new Rectangle((int)position.X,(int)position.Y,pixelsize,pixelsize);
         }
         private void jump(){
-            if(canJump){
                 velocity.Y = -10;
                 canJump = false;
-            }
 
         }
         public void Update(){
@@ -39,7 +37,10 @@ namespace TEst_med_Alvin
                 position.X += 3;
             }
             if(Kstate.IsKeyDown(Keys.Space)){
-                jump();
+                if(canJump){
+                    jump();
+                    Effect.Play();
+                }
             }
             if(position.Y > 300){
                 velocity.Y = 0;

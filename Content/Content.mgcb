@@ -49,6 +49,12 @@
 /processorParam:TextureFormat=Color
 /build:grass.jpg
 
+#begin jump_07.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:jump_07.wav
+
 #begin supermario.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -60,4 +66,10 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:supermario.png
+
+#begin theme.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:theme.ogg
 
