@@ -43,7 +43,7 @@ public class Game1 : Game
         effect = Content.Load<SoundEffect>("jump_07");
         Supermario = Content.Load<Texture2D>("supermario");
         Grass = Content.Load<Texture2D>("grass");
-        player = new Player (Supermario,new Vector2(380, 350),50);
+        player = new Player (Supermario,new Vector2(380, 350),50, effect);
         platform = new Platform (Grass,new Vector2(0, 350),new Vector2(830,130));
         brick = Content.Load<Texture2D>("Brick");
         bakgrundsbild = Content.Load<Texture2D>("bakgrundsbild");

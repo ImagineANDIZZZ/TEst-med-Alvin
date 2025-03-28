@@ -1,5 +1,6 @@
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -10,6 +11,7 @@ namespace TEst_med_Alvin
         private Vector2 position;
         private Texture2D texture;
         private Rectangle hitbox;
+        private SoundEffect jumpsound;
         public Rectangle Hitbox{
             get{return hitbox;}
         }
@@ -17,9 +19,10 @@ namespace TEst_med_Alvin
         Vector2 velocity;
         private bool canJump = true;
 
-        public Player(Texture2D texture, Vector2 position, int pixelsize){
+        public Player(Texture2D texture, Vector2 position, int pixelsize, SoundEffect jumpsound){
             this.texture = texture;
             this.position = position;
+            this.jumpsound = jumpsound;
             hitbox = new Rectangle((int)position.X,(int)position.Y,pixelsize,pixelsize);
         }
         private void jump(){
@@ -39,7 +42,7 @@ namespace TEst_med_Alvin
             if(Kstate.IsKeyDown(Keys.Space)){
                 if(canJump){
                     jump();
-                    Effect.Play();
+                    jumpsound.Play();
                 }
             }
             if(position.Y > 300){
