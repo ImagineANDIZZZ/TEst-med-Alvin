@@ -91,6 +91,6 @@ public class Game1 : Game
             if(b.Hitbox.Intersects(player.Hitbox)){
                 player.BrickCollision();
             }
-        }
+        }      
     } 
 }
