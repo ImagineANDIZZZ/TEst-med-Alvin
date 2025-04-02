@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TEst-med-Alvin")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ffddeae81d6914bf1ee9e42973e3212a5dfe160")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+111bffd674e0e010fc2f00192e8e419b235984c9")]
 [assembly: System.Reflection.AssemblyProductAttribute("TEst-med-Alvin")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TEst-med-Alvin")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
