@@ -13,6 +13,8 @@ namespace TEst_med_Alvin
         private Texture2D texture;
         private Rectangle hitbox;
         private SoundEffect jumpsound;
+        private Texture2D Fireball;
+        private MouseState oldMouseState;
         public Rectangle Hitbox{
             get{return hitbox;}
         }
@@ -24,11 +26,12 @@ namespace TEst_med_Alvin
             get{return fireballs;}
         }
 
-        public Player(Texture2D texture, Vector2 position, int pixelsize, SoundEffect jumpsound){
+        public Player(Texture2D texture, Vector2 position, int pixelsize, SoundEffect jumpsound,Texture2D Fireball){
             this.texture = texture;
             this.position = position;
             this.jumpsound = jumpsound;
             hitbox = new Rectangle((int)position.X,(int)position.Y,pixelsize,pixelsize);
+            this.Fireball = Fireball;
         }
         private void Jump(){
                 velocity.Y = -10;
@@ -58,7 +61,7 @@ namespace TEst_med_Alvin
             position.Y += velocity.Y;
             velocity.Y += GRAVITY * 1f/60f; 
             hitbox.Location = position.ToPoint();
-            
+            Shoot();
 
             foreach(Fireball f in fireballs){
                 f.Update();
@@ -66,10 +69,11 @@ namespace TEst_med_Alvin
         }
         private void Shoot(){
             MouseState Mstate = Mouse.GetState();
-            if(Mstate.LeftButton==ButtonState.Pressed){
-                Fireball fireball = new Fireball(texture,position);
+            if(Mstate.LeftButton==ButtonState.Pressed && oldMouseState.LeftButton == ButtonState.Released){
+                Fireball fireball = new Fireball(Fireball,position + new Vector2(44,-10));
                 fireballs.Add(fireball);
             }
+            oldMouseState = Mstate;
         } 
         public void Draw(SpriteBatch spriteBatch){
             spriteBatch.Draw(texture, hitbox, Color.White);

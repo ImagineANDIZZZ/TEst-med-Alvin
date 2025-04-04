@@ -19,6 +19,7 @@ public class Game1 : Game
     private Texture2D bakgrundsbild;
     private Brick box;
     private Texture2D brick;
+    private Texture2D Fireball;
     private List<Brick> boxar = new List<Brick>();
     Song theme;
     SoundEffect effect;
@@ -43,13 +44,15 @@ public class Game1 : Game
         effect = Content.Load<SoundEffect>("jump_07");
         Supermario = Content.Load<Texture2D>("supermario");
         Grass = Content.Load<Texture2D>("grass");
-        player = new Player (Supermario,new Vector2(380, 350),50, effect);
         platform = new Platform (Grass,new Vector2(0, 350),new Vector2(830,130));
         brick = Content.Load<Texture2D>("Brick");
+        Fireball = Content.Load<Texture2D>("Fireball");
         bakgrundsbild = Content.Load<Texture2D>("bakgrundsbild");
         AddBricks();
         theme = Content.Load<Song>("theme");
         MediaPlayer.Play(theme);
+
+        player = new Player (Supermario,new Vector2(380, 350),50, effect, Fireball);
     }
     
 

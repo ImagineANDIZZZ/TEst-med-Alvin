@@ -15,16 +15,15 @@ namespace TEst_med_Alvin
         public Fireball(Texture2D texture, Vector2 startPosition){
         this.texture = texture;
         position = startPosition;
-        hitbox = new Rectangle((int)position.X,(int)position.Y,80,80);
+        hitbox = new Rectangle((int)position.X,(int)position.Y,22,22);
         }
         public void Update(){
-            float speed = 120;
+            float speed = 150;
             position.X += speed * 1f/60f;
             hitbox.Location = position.ToPoint();
         }
         public void Draw(SpriteBatch spriteBatch){
-            spriteBatch.Draw(texture, hitbox, Color.Blue);
+            spriteBatch.Draw(texture, hitbox, Color.White);
         }
     }
-
 }
