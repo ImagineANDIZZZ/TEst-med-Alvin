@@ -21,6 +21,7 @@ public class Game1 : Game
     private Texture2D brick;
     private Texture2D Fireball;
     private List<Brick> boxar = new List<Brick>();
+    private List<Goomba> goombas = new List<Goomba>();
     Song theme;
     SoundEffect effect;
     
@@ -30,6 +31,7 @@ public class Game1 : Game
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
     }
+    private int Hp = 1;
 
     protected override void Initialize()
     {
@@ -63,8 +65,13 @@ public class Game1 : Game
 
         player.Update();
         playerbrickcollision();
-
         base.Update(gameTime);
+        foreach(Goomba goomba in goombas){
+            goomba.Update();
+        }
+        GoombaFireballCollision();
+        GoombaSupermariolCollision();
+        SpawnGoomba();
     }
 
     protected override void Draw(GameTime gameTime)
@@ -77,6 +84,9 @@ public class Game1 : Game
         platform.Draw(_spriteBatch);
         foreach(Brick b in boxar){
             b.Draw(_spriteBatch);
+        }
+        foreach(Goomba goomba in goombas){
+        goomba.Draw(_spriteBatch);
         }
         _spriteBatch.End();
         base.Draw(gameTime);
@@ -96,4 +106,37 @@ public class Game1 : Game
             }
         }      
     } 
+
+    private void SpawnGoomba(){
+        int value = 1;
+        int spawnChanceProcent = 5;
+        if(value <= spawnChanceProcent)
+            goombas.Add(new Goomba(Goomba));
+    }
+
+    private void GoombaFireballCollision(){
+        for(int i = 0; i < goombas.Count; i++){
+            for(int j =0; j < player.Fireballs.Count; j++){
+                if(goombas[i].Hitbox.Intersects(player.Fireballs[j].Hitbox)){
+                    goombas.RemoveAt(i);
+                    player.Fireballs.RemoveAt(j);
+                    i--;
+                    j--;
+                }
+            }
+        }
+    }
+
+    private void GoombaSupermariolCollision(){
+        for(int i = 0; i < goombas.Count; i++){
+            if(goombas[i].Hitbox.Intersects(player.Hitbox)){
+                Hp--;
+                 goombas.RemoveAt(i);
+                i--;
+                if(Hp <= 0){
+                    Exit();
+                }
+            }
+        }
+    }
 }

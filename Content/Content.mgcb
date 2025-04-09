@@ -49,7 +49,7 @@
 /processorParam:TextureFormat=Color
 /build:fireball.png
 
-#begin fireball.png
+#begin Goomba.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -59,7 +59,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:fireball.png
+/build:Goomba.png
 
 #begin grass.jpg
 /importer:TextureImporter

@@ -44,3 +44,4 @@ c:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\
 c:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\theme.xnb
 C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\jump_07.xnb
 C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\fireball.xnb
+C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\Goomba.xnb
