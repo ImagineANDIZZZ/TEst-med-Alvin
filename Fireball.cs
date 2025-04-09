@@ -12,6 +12,7 @@ namespace TEst_med_Alvin
         public Rectangle Hitbox{
             get{return hitbox;}
         }
+        const float GRAVITY = 18.4f;
         public Fireball(Texture2D texture, Vector2 startPosition){
         this.texture = texture;
         position = startPosition;
@@ -19,8 +20,9 @@ namespace TEst_med_Alvin
         }
         public void Update(){
             float speed = 150;
-            position.X += speed * 1f/60f;
+            position.X += GRAVITY * speed * 1f/60f;
             hitbox.Location = position.ToPoint();
+
         }
         public void Draw(SpriteBatch spriteBatch){
             spriteBatch.Draw(texture, hitbox, Color.White);

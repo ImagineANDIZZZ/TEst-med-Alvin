@@ -16,12 +16,12 @@ namespace TEst_med_Alvin
 
         public Goomba(Texture2D texture){
             this.texture = texture;
-            hitbox = new Microsoft.Xna.Framework.Rectangle(800,325,20,20);
+            hitbox = new Microsoft.Xna.Framework.Rectangle(800,300,50,50);
             position = hitbox.Location.ToVector2();
         }
 
         public void Update(){
-            float speed = 80;
+            float speed = 35;
             position.X -= speed *1/60f;
             hitbox.Location = position.ToPoint();
         }

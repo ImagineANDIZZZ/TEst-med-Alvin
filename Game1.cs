@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 using SharpDX.Direct3D9;
+using System;
 
 namespace TEst_med_Alvin;
 
@@ -20,6 +21,7 @@ public class Game1 : Game
     private Brick box;
     private Texture2D brick;
     private Texture2D Fireball;
+    private Texture2D Goomba;
     private List<Brick> boxar = new List<Brick>();
     private List<Goomba> goombas = new List<Goomba>();
     Song theme;
@@ -53,7 +55,7 @@ public class Game1 : Game
         AddBricks();
         theme = Content.Load<Song>("theme");
         MediaPlayer.Play(theme);
-
+        Goomba = Content.Load<Texture2D>("Goomba");
         player = new Player (Supermario,new Vector2(380, 350),50, effect, Fireball);
     }
     
@@ -108,7 +110,8 @@ public class Game1 : Game
     } 
 
     private void SpawnGoomba(){
-        int value = 1;
+        Random rand = new Random();
+        int value = rand.Next(1,345);
         int spawnChanceProcent = 5;
         if(value <= spawnChanceProcent)
             goombas.Add(new Goomba(Goomba));
@@ -120,8 +123,7 @@ public class Game1 : Game
                 if(goombas[i].Hitbox.Intersects(player.Fireballs[j].Hitbox)){
                     goombas.RemoveAt(i);
                     player.Fireballs.RemoveAt(j);
-                    i--;
-                    j--;
+                    break;
                 }
             }
         }

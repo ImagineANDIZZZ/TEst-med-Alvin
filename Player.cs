@@ -30,7 +30,7 @@ namespace TEst_med_Alvin
             this.texture = texture;
             this.position = position;
             this.jumpsound = jumpsound;
-            hitbox = new Rectangle((int)position.X,(int)position.Y,pixelsize,pixelsize);
+            hitbox = new Rectangle((int)position.X,(int)position.Y,50,50);
             this.Fireball = Fireball;
         }
         private void Jump(){
