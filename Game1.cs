@@ -111,8 +111,8 @@ public class Game1 : Game
 
     private void SpawnGoomba(){
         Random rand = new Random();
-        int value = rand.Next(1,345);
-        int spawnChanceProcent = 5;
+        int value = rand.Next(1,100);
+        int spawnChanceProcent = 2;
         if(value <= spawnChanceProcent)
             goombas.Add(new Goomba(Goomba));
     }

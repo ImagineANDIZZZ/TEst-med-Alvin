@@ -70,7 +70,7 @@ namespace TEst_med_Alvin
         private void Shoot(){
             MouseState Mstate = Mouse.GetState();
             if(Mstate.LeftButton==ButtonState.Pressed && oldMouseState.LeftButton == ButtonState.Released){
-                Fireball fireball = new Fireball(Fireball,position + new Vector2(44,-10));
+                Fireball fireball = new Fireball(Fireball,position + new Vector2(44,20));
                 fireballs.Add(fireball);
             }
             oldMouseState = Mstate;
