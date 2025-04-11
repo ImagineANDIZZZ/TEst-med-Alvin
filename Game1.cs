@@ -15,9 +15,8 @@ public class Game1 : Game
     private SpriteBatch _spriteBatch;
     private Player player;
     private Texture2D Supermario;
-    private Texture2D Grass;
+    private Texture2D BrickPlatform;
     private Platform platform;
-    private Texture2D bakgrundsbild;
     private Brick box;
     private Texture2D brick;
     private Texture2D Fireball;
@@ -47,11 +46,10 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         effect = Content.Load<SoundEffect>("jump_07");
         Supermario = Content.Load<Texture2D>("supermario");
-        Grass = Content.Load<Texture2D>("grass");
-        platform = new Platform (Grass,new Vector2(0, 350),new Vector2(830,130));
+        BrickPlatform = Content.Load<Texture2D>("BrickPlatform");
+        platform = new Platform (BrickPlatform,new Vector2(0, 350),new Vector2(660,260));
         brick = Content.Load<Texture2D>("Brick");
         Fireball = Content.Load<Texture2D>("Fireball");
-        bakgrundsbild = Content.Load<Texture2D>("bakgrundsbild");
         AddBricks();
         theme = Content.Load<Song>("theme");
         MediaPlayer.Play(theme);
@@ -81,7 +79,6 @@ public class Game1 : Game
         Rectangle bgRect = new(0,0,800,600);
         GraphicsDevice.Clear(Color.CornflowerBlue);
         _spriteBatch.Begin();
-        _spriteBatch.Draw(bakgrundsbild, bgRect, Color.White);
         player.Draw(_spriteBatch);
         platform.Draw(_spriteBatch);
         foreach(Brick b in boxar){
@@ -92,7 +89,6 @@ public class Game1 : Game
         }
         _spriteBatch.End();
         base.Draw(gameTime);
-        
     }
 
     private void AddBricks(){
@@ -112,7 +108,7 @@ public class Game1 : Game
     private void SpawnGoomba(){
         Random rand = new Random();
         int value = rand.Next(1,100);
-        int spawnChanceProcent = 2;
+        int spawnChanceProcent = 1;
         if(value <= spawnChanceProcent)
             goombas.Add(new Goomba(Goomba));
     }
