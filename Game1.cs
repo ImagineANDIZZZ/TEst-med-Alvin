@@ -18,10 +18,13 @@ public class Game1 : Game
     private Texture2D BrickPlatform;
     private Platform platform;
     private Brick box;
+    private Cloud box;
     private Texture2D brick;
+    private Texture2D cloud;
     private Texture2D Fireball;
     private Texture2D Goomba;
     private List<Brick> boxar = new List<Brick>();
+    private List<Cloud> boxar = new List<Cloud>();
     private List<Goomba> goombas = new List<Goomba>();
     Song theme;
     SoundEffect effect;
@@ -49,8 +52,10 @@ public class Game1 : Game
         BrickPlatform = Content.Load<Texture2D>("BrickPlatform");
         platform = new Platform (BrickPlatform,new Vector2(0, 350),new Vector2(660,260));
         brick = Content.Load<Texture2D>("Brick");
+        cloud = Content.Load<Texture2D>("Cloud");
         Fireball = Content.Load<Texture2D>("Fireball");
         AddBricks();
+        addClouds();
         theme = Content.Load<Song>("theme");
         MediaPlayer.Play(theme);
         Goomba = Content.Load<Texture2D>("Goomba");
@@ -65,6 +70,7 @@ public class Game1 : Game
 
         player.Update();
         playerbrickcollision();
+        playercloudcollision();
         base.Update(gameTime);
         foreach(Goomba goomba in goombas){
             goomba.Update();
@@ -84,6 +90,9 @@ public class Game1 : Game
         foreach(Brick b in boxar){
             b.Draw(_spriteBatch);
         }
+        foreach(Cloud c in boxar){
+            b.Draw(_spriteBatch);
+        }
         foreach(Goomba goomba in goombas){
         goomba.Draw(_spriteBatch);
         }
@@ -92,15 +101,27 @@ public class Game1 : Game
     }
 
     private void AddBricks(){
-            boxar.Add(new Brick (brick,new Vector2(250, 150),new Vector2(100,80)));        
-            boxar.Add(new Brick (brick,new Vector2(500, 200),new Vector2(100,80)));   
-            boxar.Add(new Brick (brick,new Vector2(40, 60),new Vector2(100,80)));    
+            boxar.Add(new Brick (brick,new Vector2(250, 150),new Vector2(40,40)));        
+            boxar.Add(new Brick (brick,new Vector2(500, 200),new Vector2(40,40)));   
+            boxar.Add(new Brick (brick,new Vector2(40, 60),new Vector2(40,40)));    
     }
 
     private void playerbrickcollision(){
         foreach(Brick b in boxar){
             if(b.Hitbox.Intersects(player.Hitbox)){
                 player.BrickCollision();
+            }
+        }      
+    }
+
+    private void AddClouds(){  
+            boxar.Add(new Cloud (cloud,new Vector2(300, 120),new Vector2(40,40)));    
+    }
+
+    private void playercloudcollision(){
+        foreach(Cloud c in boxar){
+            if(b.Hitbox.Intersects(player.Hitbox)){
+                player.CloudCollision();
             }
         }      
     } 

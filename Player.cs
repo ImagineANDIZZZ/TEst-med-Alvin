@@ -84,5 +84,9 @@ namespace TEst_med_Alvin
         public void BrickCollision(){
             velocity.Y = 0;
         }
+
+         public void CloudCollision(){
+            velocity.Y = 0;
+        }
     }
 }
