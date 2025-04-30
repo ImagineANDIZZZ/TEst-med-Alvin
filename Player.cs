@@ -40,12 +40,12 @@ namespace TEst_med_Alvin
         }
         public void Update(){
             KeyboardState Kstate = Keyboard.GetState();
-
+            velocity.X = 0;
             if(Kstate.IsKeyDown(Keys.A)){
-                position.X -= 3;
+                velocity.X = -3;
             }
             else if(Kstate.IsKeyDown(Keys.D)){
-                position.X += 3;
+                velocity.X = 3;
             }
             if(Kstate.IsKeyDown(Keys.Space)){
                 if(canJump){
@@ -58,7 +58,7 @@ namespace TEst_med_Alvin
                 position.Y = 300;
                 canJump = true;
             }
-            position.Y += velocity.Y;
+            position += velocity;
             velocity.Y += GRAVITY * 1f/60f; 
             hitbox.Location = position.ToPoint();
             Shoot();
@@ -90,9 +90,55 @@ namespace TEst_med_Alvin
                 canJump=true;
             }
         }
+        public void BCollision(Rectangle brickhitbox){
+            Vector2 prevPos = position;
+            prevPos.X -= velocity.X;
+            hitbox.Location = prevPos.ToPoint();
+            if(!hitbox.Intersects(brickhitbox))
+            {
+                position.X= prevPos.X;
+            }
+            else{
+                position.Y -= velocity.Y;
+                if(velocity.Y >0){
+                    canJump =true;
+                    position.Y = brickhitbox.Top - hitbox.Height;
+                }
+                else
+                    position.Y = brickhitbox.Bottom;
+                velocity.Y = 0; 
+            }
+            hitbox.Location = position.ToPoint();
+        }
 
-         public void CloudCollision(){
-            velocity.Y = 0;
+         public void CloudCollision(Rectangle cloudhitbox){
+            float lastYPos = position.Y - velocity.Y;
+            position.Y = cloudhitbox.Y + cloudhitbox.Height;
+            if(lastYPos + hitbox.Height < cloudhitbox.Y){
+                velocity.Y = 0;
+                position.Y = cloudhitbox.Y - hitbox.Height-2; 
+                canJump=true;
+            }
+        }
+         public void CCollision(Rectangle cloudhitbox){
+            Vector2 prevPos = position;
+            prevPos.X -= velocity.X;
+            hitbox.Location = prevPos.ToPoint();
+            if(!hitbox.Intersects(cloudhitbox))
+            {
+                position.X= prevPos.X;
+            }
+            else{
+                position.Y -= velocity.Y;
+                if(velocity.Y >0){
+                    canJump =true;
+                    position.Y = cloudhitbox.Top - hitbox.Height;
+                }
+                else
+                    position.Y = cloudhitbox.Bottom;
+                velocity.Y = 0; 
+            }
+            hitbox.Location = position.ToPoint();
         }
     }
 }

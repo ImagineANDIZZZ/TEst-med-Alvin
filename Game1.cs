@@ -110,7 +110,7 @@ public class Game1 : Game
     private void playerbrickcollision(){
         foreach(Brick b in boxar){
             if(b.Hitbox.Intersects(player.Hitbox)){
-                player.BrickCollision();
+                player.BCollision(b.Hitbox);
             }
         }      
     }
@@ -124,7 +124,7 @@ public class Game1 : Game
     private void playercloudcollision(){
         foreach(Cloud c in clouds){
             if(c.Hitbox.Intersects(player.Hitbox)){
-                player.CloudCollision();
+                player.CCollision(c.Hitbox);
             }
         }      
     } 
