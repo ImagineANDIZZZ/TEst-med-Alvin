@@ -81,8 +81,14 @@ namespace TEst_med_Alvin
                 f.Draw(spriteBatch);
             }
         }
-        public void BrickCollision(){
-            velocity.Y = 0;
+        public void BrickCollision(Rectangle brickhitbox){
+            float lastYPos = position.Y - velocity.Y;
+            position.Y = brickhitbox.Y + brickhitbox.Height;
+            if(lastYPos + hitbox.Height < brickhitbox.Y){
+                velocity.Y = 0;
+                position.Y = brickhitbox.Y - hitbox.Height-2; 
+                canJump=true;
+            }
         }
 
          public void CloudCollision(){
