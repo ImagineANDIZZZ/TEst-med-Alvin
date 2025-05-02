@@ -22,9 +22,11 @@ public class Game1 : Game
     private Texture2D cloud;
     private Texture2D Fireball;
     private Texture2D Goomba;
+    private Texture2D Bullet_Bill;
     private List<Brick> boxar = new List<Brick>();
     private List<Cloud> clouds = new List<Cloud>();
     private List<Goomba> goombas = new List<Goomba>();
+    private List<Bullet_Bill> bullet_Bills = new List<Bullet_Bill>();
     Song theme;
     SoundEffect effect;
     
@@ -58,6 +60,7 @@ public class Game1 : Game
         theme = Content.Load<Song>("theme");
         MediaPlayer.Play(theme);
         Goomba = Content.Load<Texture2D>("Goomba");
+        Bullet_Bill = Content.Load<Texture2D>("bullet-bill");
         player = new Player (Supermario,new Vector2(380, 350),50, effect, Fireball);
     }
     
@@ -77,6 +80,13 @@ public class Game1 : Game
         GoombaFireballCollision();
         GoombaSupermariolCollision();
         SpawnGoomba();
+
+        foreach(Bullet_Bill bullet_Bill in bullet_Bills){
+            bullet_Bill.Update();
+        }
+        Bullet_BillFireballCollision();
+        Bullet_BillSupermariolCollision();
+        SpawnBullet_Bill();
     }
 
     protected override void Draw(GameTime gameTime)
@@ -95,6 +105,9 @@ public class Game1 : Game
         foreach(Goomba goomba in goombas){
         goomba.Draw(_spriteBatch);
         }
+        foreach(Bullet_Bill bullet_bill in bullet_Bills){
+        bullet_bill.Draw(_spriteBatch);
+        }
         _spriteBatch.End();
         base.Draw(gameTime);
     }
@@ -102,9 +115,13 @@ public class Game1 : Game
     private void AddBricks(){
             boxar.Add(new Brick (brick,new Vector2(280, 160),new Vector2(40,40)));
             boxar.Add(new Brick (brick,new Vector2(240, 160),new Vector2(40,40))); 
-            boxar.Add(new Brick (brick,new Vector2(200, 160),new Vector2(40,40)));         
+            boxar.Add(new Brick (brick,new Vector2(200, 160),new Vector2(40,40))); 
+            boxar.Add(new Brick (brick,new Vector2(80, 240),new Vector2(40,40))); 
+            boxar.Add(new Brick (brick,new Vector2(460, 240),new Vector2(40,40)));           
             boxar.Add(new Brick (brick,new Vector2(500, 240),new Vector2(40,40)));   
-            boxar.Add(new Brick (brick,new Vector2(540, 240),new Vector2(40,40)));    
+            boxar.Add(new Brick (brick,new Vector2(540, 240),new Vector2(40,40)));
+            boxar.Add(new Brick (brick,new Vector2(660, 240),new Vector2(40,40)));    
+            boxar.Add(new Brick (brick,new Vector2(700, 240),new Vector2(40,40)));        
     }
 
     private void playerbrickcollision(){
@@ -116,8 +133,8 @@ public class Game1 : Game
     }
 
     private void AddClouds(){
-            clouds.Add(new Cloud (cloud,new Vector2(430, 30),new Vector2(60,60)));
-            clouds.Add(new Cloud (cloud,new Vector2(40, 40),new Vector2(60,60)));  
+            clouds.Add(new Cloud (cloud,new Vector2(450, 20),new Vector2(60,60)));
+            clouds.Add(new Cloud (cloud,new Vector2(40, 80),new Vector2(60,60)));  
             clouds.Add(new Cloud (cloud,new Vector2(720, 80),new Vector2(60,60)));      
     }
 
@@ -154,6 +171,40 @@ public class Game1 : Game
             if(goombas[i].Hitbox.Intersects(player.Hitbox)){
                 Hp--;
                  goombas.RemoveAt(i);
+                i--;
+                if(Hp <= 0){
+                    Exit();
+                }
+            }
+        }
+    }
+
+
+    private void SpawnBullet_Bill(){
+        Random rand = new Random();
+        int value = rand.Next(1,100);
+        int spawnChanceProcent = 1;
+        if(value <= spawnChanceProcent)
+            bullet_Bills.Add(new Bullet_Bill(Bullet_Bill));
+    }
+
+    private void Bullet_BillFireballCollision(){
+        for(int i = 0; i < bullet_Bills.Count; i++){
+            for(int j =0; j < player.Fireballs.Count; j++){
+                if(bullet_Bills[i].Hitbox.Intersects(player.Fireballs[j].Hitbox)){
+                    bullet_Bills.RemoveAt(i);
+                    player.Fireballs.RemoveAt(j);
+                    break;
+                }
+            }
+        }
+    }
+
+    private void Bullet_BillSupermariolCollision(){
+        for(int i = 0; i < bullet_Bills.Count; i++){
+            if(bullet_Bills[i].Hitbox.Intersects(player.Hitbox)){
+                Hp--;
+                 bullet_Bills.RemoveAt(i);
                 i--;
                 if(Hp <= 0){
                     Exit();
