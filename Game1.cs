@@ -18,17 +18,20 @@ public class Game1 : Game
     private Texture2D BrickPlatform;
     private Platform platform;
     private Brick box;
+    private Platform Platform;
     private Texture2D brick;
     private Texture2D cloud;
     private Texture2D Fireball;
     private Texture2D Goomba;
     private Texture2D Bullet_Bill;
     private List<Brick> boxar = new List<Brick>();
+    private List<Platform> Platforms = new List<Platform>();
     private List<Cloud> clouds = new List<Cloud>();
     private List<Goomba> goombas = new List<Goomba>();
     private List<Bullet_Bill> bullet_Bills = new List<Bullet_Bill>();
     Song theme;
     SoundEffect effect;
+    Camera cam ;
     
     public Game1()
     {
@@ -40,7 +43,7 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
+        cam = new Camera(GraphicsDevice.Viewport);
 
         base.Initialize();
     }
@@ -62,6 +65,7 @@ public class Game1 : Game
         Goomba = Content.Load<Texture2D>("Goomba");
         Bullet_Bill = Content.Load<Texture2D>("bullet-bill");
         player = new Player (Supermario,new Vector2(380, 350),50, effect, Fireball);
+        cam = new Camera(GraphicsDevice.Viewport);
     }
     
 
@@ -87,13 +91,18 @@ public class Game1 : Game
         Bullet_BillFireballCollision();
         Bullet_BillSupermariolCollision();
         SpawnBullet_Bill();
+
+        AddPlatform();
+        playerPlatformcollision();
+        cam.UpdateCamera(GraphicsDevice.Viewport,player.Hitbox.Location.ToVector2());
     }
 
     protected override void Draw(GameTime gameTime)
     {
         Rectangle bgRect = new(0,0,800,600);
         GraphicsDevice.Clear(Color.CornflowerBlue);
-        _spriteBatch.Begin();
+        
+        _spriteBatch.Begin(transformMatrix: cam.Transform);
         player.Draw(_spriteBatch);
         platform.Draw(_spriteBatch);
         foreach(Brick b in boxar){
@@ -107,6 +116,9 @@ public class Game1 : Game
         }
         foreach(Bullet_Bill bullet_bill in bullet_Bills){
         bullet_bill.Draw(_spriteBatch);
+        }
+         foreach(Platform p in Platforms){
+            p.Draw(_spriteBatch);
         }
         _spriteBatch.End();
         base.Draw(gameTime);
@@ -144,7 +156,22 @@ public class Game1 : Game
                 player.CCollision(c.Hitbox);
             }
         }      
+    }
+
+    private void AddPlatform(){
+            Platform.Add(new Cloud (cloud,new Vector2(450, 20),new Vector2(60,60)));
+            Platform.Add(new Cloud (cloud,new Vector2(40, 80),new Vector2(60,60)));  
+            Platform.Add(new Cloud (cloud,new Vector2(720, 80),new Vector2(60,60)));      
+    }
+
+    private void playerPlatformcollision(){
+        foreach(Platform p in Platforms){
+            if(p.Hitbox.Intersects(player.Hitbox)){
+                player.PCollision(p.Hitbox);
+            }
+        }      
     } 
+
 
     private void SpawnGoomba(){
         Random rand = new Random();

@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -17,15 +18,7 @@ namespace TEst_med_Alvin
         }    
         public void Draw(SpriteBatch spriteBatch){
             spriteBatch.Draw(texture, hitbox, Color.White);
-            Rectangle h2 = hitbox;
-            h2.Location += new Point(hitbox.Size.X,0);
-            spriteBatch.Draw(texture, h2, Color.White);
-            Rectangle h3 = h2;
-            h3.Location += new Point(hitbox.Size.X,0);
-            spriteBatch.Draw(texture, h3, Color.White);
-            Rectangle h4 = h3;
-            h4.Location += new Point(hitbox.Size.X,0);
-            spriteBatch.Draw(texture, h4, Color.White);
+            spriteBatch.Draw(texture,new Vector2(0,0), null,Color.White,MathF.PI/2,new Vector2(texture.Width/2,texture.Height/2),1,SpriteEffects.None,0);
         }
         
     }
