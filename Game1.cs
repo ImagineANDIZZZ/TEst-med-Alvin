@@ -15,10 +15,10 @@ public class Game1 : Game
     private SpriteBatch _spriteBatch;
     private Player player;
     private Texture2D Supermario;
-    private Texture2D BrickPlatform;
-    private Platform platform;
+    private Texture2D brickTexture;
     private Brick box;
-    private Platform Platform;
+    //private Platform Platform;
+    //private Texture2D brickTexture;
     private Texture2D brick;
     private Texture2D cloud;
     private Texture2D Fireball;
@@ -53,8 +53,8 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         effect = Content.Load<SoundEffect>("jump_07");
         Supermario = Content.Load<Texture2D>("supermario");
-        BrickPlatform = Content.Load<Texture2D>("BrickPlatform");
-        platform = new Platform (BrickPlatform,new Vector2(0, 350),new Vector2(660,260));
+        brickTexture = Content.Load<Texture2D>("BrickPlatform");
+        //Platform = new Platform (brickTexture,new Vector2(0, 350),new Vector2(660,260));
         brick = Content.Load<Texture2D>("Brick");
         cloud = Content.Load<Texture2D>("Cloud");
         Fireball = Content.Load<Texture2D>("Fireball");
@@ -104,7 +104,7 @@ public class Game1 : Game
         
         _spriteBatch.Begin(transformMatrix: cam.Transform);
         player.Draw(_spriteBatch);
-        platform.Draw(_spriteBatch);
+        //Platform.Draw(_spriteBatch);
         foreach(Brick b in boxar){
             b.Draw(_spriteBatch);
         }
@@ -159,9 +159,11 @@ public class Game1 : Game
     }
 
     private void AddPlatform(){
-            Platform.Add(new Cloud (cloud,new Vector2(450, 20),new Vector2(60,60)));
-            Platform.Add(new Cloud (cloud,new Vector2(40, 80),new Vector2(60,60)));  
-            Platform.Add(new Cloud (cloud,new Vector2(720, 80),new Vector2(60,60)));      
+            Platforms.Add(new Platform (brickTexture,new Vector2(-620, 350),new Vector2(600,190),Vector2.Zero));
+            Platforms.Add(new Platform (brickTexture,new Vector2(-20, 350),new Vector2(600,190),Vector2.Zero));
+            Platforms.Add(new Platform (brickTexture,new Vector2(580, 350),new Vector2(600,190),Vector2.Zero));
+            Platforms.Add(new Platform (brickTexture,new Vector2(1180, 350),new Vector2(600,190),Vector2.Zero));  
+            Platforms.Add(new Platform (brickTexture,new Vector2(-700, -200),new Vector2(200,400), new Vector2(brickTexture.Width,brickTexture.Height)/2,MathHelper.PiOver2));      
     }
 
     private void playerPlatformcollision(){
@@ -175,7 +177,7 @@ public class Game1 : Game
 
     private void SpawnGoomba(){
         Random rand = new Random();
-        int value = rand.Next(1,100);
+        int value = rand.Next(1,200);
         int spawnChanceProcent = 1;
         if(value <= spawnChanceProcent)
             goombas.Add(new Goomba(Goomba));
@@ -209,7 +211,7 @@ public class Game1 : Game
 
     private void SpawnBullet_Bill(){
         Random rand = new Random();
-        int value = rand.Next(1,100);
+        int value = rand.Next(1,200);
         int spawnChanceProcent = 1;
         if(value <= spawnChanceProcent)
             bullet_Bills.Add(new Bullet_Bill(Bullet_Bill));

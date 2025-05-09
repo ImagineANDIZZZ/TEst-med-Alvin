@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SharpDX.Direct3D9;
 
 namespace TEst_med_Alvin
 {
@@ -9,16 +10,29 @@ namespace TEst_med_Alvin
         private Vector2 position;
         private Texture2D texture;
         private Rectangle hitbox;
+         public Rectangle Hitbox{
+            get{return hitbox;}
+        }
+        private float rotation = 0;
+        private Vector2 rotationOrigo = Vector2.Zero;
         private Platform platform;
+
+
     
-        public Platform(Texture2D texture, Vector2 position, Vector2 size){
+        public Platform(Texture2D texture, Vector2 position, Vector2 size,  Vector2 rotationOrigo,float startRotation = 0 ){
             this.texture = texture;
             this.position = position;
             hitbox = new Rectangle(position.ToPoint(),size.ToPoint());
+            this.rotationOrigo = rotationOrigo;
+            this.rotation = startRotation;
+            if(startRotation != 0){
+                hitbox.X = (int)size.Y;
+                hitbox.Y = (int)size.X;
+            } 
         }    
         public void Draw(SpriteBatch spriteBatch){
-            spriteBatch.Draw(texture, hitbox, Color.White);
-            spriteBatch.Draw(texture,new Vector2(0,0), null,Color.White,MathF.PI/2,new Vector2(texture.Width/2,texture.Height/2),1,SpriteEffects.None,0);
+            
+            spriteBatch.Draw(texture,hitbox, null,Color.White,0,rotationOrigo,SpriteEffects.None,0);
         }
         
     }
