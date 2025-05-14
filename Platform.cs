@@ -25,14 +25,10 @@ namespace TEst_med_Alvin
             hitbox = new Rectangle(position.ToPoint(),size.ToPoint());
             this.rotationOrigo = rotationOrigo;
             this.rotation = startRotation;
-            if(startRotation != 0){
-                hitbox.X = (int)size.Y;
-                hitbox.Y = (int)size.X;
-            } 
         }    
         public void Draw(SpriteBatch spriteBatch){
             
-            spriteBatch.Draw(texture,hitbox, null,Color.White,0,rotationOrigo,SpriteEffects.None,0);
+            spriteBatch.Draw(texture,hitbox, null,Color.White,rotation,rotationOrigo,SpriteEffects.None,0);
         }
         
     }

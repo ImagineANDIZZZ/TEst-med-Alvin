@@ -163,7 +163,7 @@ public class Game1 : Game
             Platforms.Add(new Platform (brickTexture,new Vector2(-20, 350),new Vector2(600,190),Vector2.Zero));
             Platforms.Add(new Platform (brickTexture,new Vector2(580, 350),new Vector2(600,190),Vector2.Zero));
             Platforms.Add(new Platform (brickTexture,new Vector2(1180, 350),new Vector2(600,190),Vector2.Zero));  
-            Platforms.Add(new Platform (brickTexture,new Vector2(-700, -200),new Vector2(200,400), new Vector2(brickTexture.Width,brickTexture.Height)/2,MathHelper.PiOver2));      
+            Platforms.Add(new Platform (brickTexture,new Vector2(-300, 250),new Vector2(600,300), new Vector2(brickTexture.Width,brickTexture.Height)/2,MathHelper.PiOver2));      
     }
 
     private void playerPlatformcollision(){
