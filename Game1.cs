@@ -31,8 +31,8 @@ public class Game1 : Game
     private List<Bullet_Bill> bullet_Bills = new List<Bullet_Bill>();
     Song theme;
     SoundEffect effect;
-    Camera cam ;
-    
+    Camera cam;
+
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -64,28 +64,30 @@ public class Game1 : Game
         MediaPlayer.Play(theme);
         Goomba = Content.Load<Texture2D>("Goomba");
         Bullet_Bill = Content.Load<Texture2D>("bullet-bill");
-        player = new Player (Supermario,new Vector2(380, 350),50, effect, Fireball);
+        player = new Player(Supermario, new Vector2(380, 350), 50, effect, Fireball);
         cam = new Camera(GraphicsDevice.Viewport);
     }
-    
+
 
     protected override void Update(GameTime gameTime)
     {
-        if(GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
         player.Update();
         playerbrickcollision();
         playercloudcollision();
         base.Update(gameTime);
-        foreach(Goomba goomba in goombas){
+        foreach (Goomba goomba in goombas)
+        {
             goomba.Update();
         }
         GoombaFireballCollision();
         GoombaSupermariolCollision();
         SpawnGoomba();
 
-        foreach(Bullet_Bill bullet_Bill in bullet_Bills){
+        foreach (Bullet_Bill bullet_Bill in bullet_Bills)
+        {
             bullet_Bill.Update();
         }
         Bullet_BillFireballCollision();
@@ -94,100 +96,123 @@ public class Game1 : Game
 
         AddPlatform();
         playerPlatformcollision();
-        cam.UpdateCamera(GraphicsDevice.Viewport,player.Hitbox.Location.ToVector2());
+        cam.UpdateCamera(GraphicsDevice.Viewport, player.Hitbox.Location.ToVector2());
+        RemoveGoombas();
+        RemoveBullet_Bills();
     }
 
     protected override void Draw(GameTime gameTime)
     {
-        Rectangle bgRect = new(0,0,800,600);
+        Rectangle bgRect = new(0, 0, 800, 600);
         GraphicsDevice.Clear(Color.CornflowerBlue);
-        
+
         _spriteBatch.Begin(transformMatrix: cam.Transform);
         player.Draw(_spriteBatch);
-        //Platform.Draw(_spriteBatch);
-        foreach(Brick b in boxar){
+        foreach (Brick b in boxar)
+        {
             b.Draw(_spriteBatch);
         }
-        foreach(Cloud c in clouds){
+        foreach (Cloud c in clouds)
+        {
             c.Draw(_spriteBatch);
         }
-        foreach(Goomba goomba in goombas){
-        goomba.Draw(_spriteBatch);
+        foreach (Goomba goomba in goombas)
+        {
+            goomba.Draw(_spriteBatch);
         }
-        foreach(Bullet_Bill bullet_bill in bullet_Bills){
-        bullet_bill.Draw(_spriteBatch);
+        foreach (Bullet_Bill bullet_bill in bullet_Bills)
+        {
+            bullet_bill.Draw(_spriteBatch);
         }
-         foreach(Platform p in Platforms){
+        foreach (Platform p in Platforms)
+        {
             p.Draw(_spriteBatch);
         }
         _spriteBatch.End();
         base.Draw(gameTime);
     }
 
-    private void AddBricks(){
-            boxar.Add(new Brick (brick,new Vector2(280, 160),new Vector2(40,40)));
-            boxar.Add(new Brick (brick,new Vector2(240, 160),new Vector2(40,40))); 
-            boxar.Add(new Brick (brick,new Vector2(200, 160),new Vector2(40,40))); 
-            boxar.Add(new Brick (brick,new Vector2(80, 240),new Vector2(40,40))); 
-            boxar.Add(new Brick (brick,new Vector2(460, 240),new Vector2(40,40)));           
-            boxar.Add(new Brick (brick,new Vector2(500, 240),new Vector2(40,40)));   
-            boxar.Add(new Brick (brick,new Vector2(540, 240),new Vector2(40,40)));
-            boxar.Add(new Brick (brick,new Vector2(660, 240),new Vector2(40,40)));    
-            boxar.Add(new Brick (brick,new Vector2(700, 240),new Vector2(40,40)));        
+    private void AddBricks()
+    {
+        boxar.Add(new Brick(brick, new Vector2(280, 160), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(240, 160), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(200, 160), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(80, 240), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(460, 240), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(500, 240), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(540, 240), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(660, 240), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(700, 240), new Vector2(40, 40)));
     }
 
-    private void playerbrickcollision(){
-        foreach(Brick b in boxar){
-            if(b.Hitbox.Intersects(player.Hitbox)){
+    private void playerbrickcollision()
+    {
+        foreach (Brick b in boxar)
+        {
+            if (b.Hitbox.Intersects(player.Hitbox))
+            {
                 player.BCollision(b.Hitbox);
             }
-        }      
+        }
     }
 
-    private void AddClouds(){
-            clouds.Add(new Cloud (cloud,new Vector2(450, 20),new Vector2(60,60)));
-            clouds.Add(new Cloud (cloud,new Vector2(40, 80),new Vector2(60,60)));  
-            clouds.Add(new Cloud (cloud,new Vector2(720, 80),new Vector2(60,60)));      
+    private void AddClouds()
+    {
+        clouds.Add(new Cloud(cloud, new Vector2(450, 20), new Vector2(60, 60)));
+        clouds.Add(new Cloud(cloud, new Vector2(40, 80), new Vector2(60, 60)));
+        clouds.Add(new Cloud(cloud, new Vector2(720, 80), new Vector2(60, 60)));
     }
 
-    private void playercloudcollision(){
-        foreach(Cloud c in clouds){
-            if(c.Hitbox.Intersects(player.Hitbox)){
+    private void playercloudcollision()
+    {
+        foreach (Cloud c in clouds)
+        {
+            if (c.Hitbox.Intersects(player.Hitbox))
+            {
                 player.CCollision(c.Hitbox);
             }
-        }      
+        }
     }
 
-    private void AddPlatform(){
-            Platforms.Add(new Platform (brickTexture,new Vector2(-620, 350),new Vector2(600,190),Vector2.Zero));
-            Platforms.Add(new Platform (brickTexture,new Vector2(-20, 350),new Vector2(600,190),Vector2.Zero));
-            Platforms.Add(new Platform (brickTexture,new Vector2(580, 350),new Vector2(600,190),Vector2.Zero));
-            Platforms.Add(new Platform (brickTexture,new Vector2(1180, 350),new Vector2(600,190),Vector2.Zero));  
-            Platforms.Add(new Platform (brickTexture,new Vector2(-370, 75),new Vector2(550,300), new Vector2(brickTexture.Width,brickTexture.Height)/2,MathHelper.PiOver2));  
-            Platforms.Add(new Platform (brickTexture,new Vector2(-670, 75),new Vector2(550,300), new Vector2(brickTexture.Width,brickTexture.Height)/2,MathHelper.PiOver2));    
+    private void AddPlatform()
+    {
+        Platforms.Add(new Platform(brickTexture, new Vector2(-620, 350), new Vector2(600, 190), Vector2.Zero));
+        Platforms.Add(new Platform(brickTexture, new Vector2(-20, 350), new Vector2(600, 190), Vector2.Zero));
+        Platforms.Add(new Platform(brickTexture, new Vector2(580, 350), new Vector2(600, 190), Vector2.Zero));
+        Platforms.Add(new Platform(brickTexture, new Vector2(1180, 350), new Vector2(600, 190), Vector2.Zero));
+        Platforms.Add(new Platform(brickTexture, new Vector2(-370, 75), new Vector2(550, 300), new Vector2(brickTexture.Width, brickTexture.Height) / 2, MathHelper.PiOver2));
+        Platforms.Add(new Platform(brickTexture, new Vector2(-670, 75), new Vector2(550, 300), new Vector2(brickTexture.Width, brickTexture.Height) / 2, MathHelper.PiOver2));
     }
 
-    private void playerPlatformcollision(){
-        foreach(Platform p in Platforms){
-            if(p.Hitbox.Intersects(player.Hitbox)){
+    private void playerPlatformcollision()
+    {
+        foreach (Platform p in Platforms)
+        {
+            if (p.Hitbox.Intersects(player.Hitbox))
+            {
                 player.PCollision(p.Hitbox);
             }
-        }      
-    } 
+        }
+    }
 
 
-    private void SpawnGoomba(){
+    private void SpawnGoomba()
+    {
         Random rand = new Random();
-        int value = rand.Next(1,500);
+        int value = rand.Next(1, 500);
         int spawnChanceProcent = 2;
-        if(value <= spawnChanceProcent)
+        if (value <= spawnChanceProcent)
             goombas.Add(new Goomba(Goomba));
     }
 
-    private void GoombaFireballCollision(){
-        for(int i = 0; i < goombas.Count; i++){
-            for(int j =0; j < player.Fireballs.Count; j++){
-                if(goombas[i].Hitbox.Intersects(player.Fireballs[j].Hitbox)){
+    private void GoombaFireballCollision()
+    {
+        for (int i = 0; i < goombas.Count; i++)
+        {
+            for (int j = 0; j < player.Fireballs.Count; j++)
+            {
+                if (goombas[i].Hitbox.Intersects(player.Fireballs[j].Hitbox))
+                {
                     goombas.RemoveAt(i);
                     player.Fireballs.RemoveAt(j);
                     break;
@@ -196,32 +221,56 @@ public class Game1 : Game
         }
     }
 
-    private void GoombaSupermariolCollision(){
-        for(int i = 0; i < goombas.Count; i++){
-            if(goombas[i].Hitbox.Intersects(player.Hitbox)){
+    private void GoombaSupermariolCollision()
+    {
+        for (int i = 0; i < goombas.Count; i++)
+        {
+            if (goombas[i].Hitbox.Intersects(player.Hitbox))
+            {
                 Hp--;
-                 goombas.RemoveAt(i);
+                goombas.RemoveAt(i);
                 i--;
-                if(Hp <= 0){
+                if (Hp <= 0)
+                {
                     Exit();
                 }
             }
         }
     }
 
+    void RemoveGoombas()
+    {
+        for (int i = 0; i < goombas.Count; i++)
+        {
+            /*
+            ifall goombas position är mindre än -380 så deletars de
+            */
+            if (goombas[i].Hitbox.X <= -380)
+            {
+                goombas.RemoveAt(i);
+                i--;
+            }
+        }
+    }
 
-    private void SpawnBullet_Bill(){
+
+    private void SpawnBullet_Bill()
+    {
         Random rand = new Random();
-        int value = rand.Next(1,500);
+        int value = rand.Next(1, 500);
         int spawnChanceProcent = 2;
-        if(value <= spawnChanceProcent)
+        if (value <= spawnChanceProcent)
             bullet_Bills.Add(new Bullet_Bill(Bullet_Bill));
     }
 
-    private void Bullet_BillFireballCollision(){
-        for(int i = 0; i < bullet_Bills.Count; i++){
-            for(int j =0; j < player.Fireballs.Count; j++){
-                if(bullet_Bills[i].Hitbox.Intersects(player.Fireballs[j].Hitbox)){
+    private void Bullet_BillFireballCollision()
+    {
+        for (int i = 0; i < bullet_Bills.Count; i++)
+        {
+            for (int j = 0; j < player.Fireballs.Count; j++)
+            {
+                if (bullet_Bills[i].Hitbox.Intersects(player.Fireballs[j].Hitbox))
+                {
                     bullet_Bills.RemoveAt(i);
                     player.Fireballs.RemoveAt(j);
                     break;
@@ -230,15 +279,34 @@ public class Game1 : Game
         }
     }
 
-    private void Bullet_BillSupermariolCollision(){
-        for(int i = 0; i < bullet_Bills.Count; i++){
-            if(bullet_Bills[i].Hitbox.Intersects(player.Hitbox)){
+    private void Bullet_BillSupermariolCollision()
+    {
+        for (int i = 0; i < bullet_Bills.Count; i++)
+        {
+            if (bullet_Bills[i].Hitbox.Intersects(player.Hitbox))
+            {
                 Hp--;
-                 bullet_Bills.RemoveAt(i);
+                bullet_Bills.RemoveAt(i);
                 i--;
-                if(Hp <= 0){
+                if (Hp <= 0)
+                {
                     Exit();
                 }
+            }
+        }
+    }
+
+    void RemoveBullet_Bills()
+    {
+        for (int i = 0; i < bullet_Bills.Count; i++)
+        {
+            /*
+            ifall goombas position är mindre än -380 så deletars de
+            */
+            if (bullet_Bills[i].Hitbox.X <= -380)
+            {
+                bullet_Bills.RemoveAt(i);
+                i--;
             }
         }
     }

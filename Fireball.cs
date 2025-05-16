@@ -28,7 +28,6 @@ namespace TEst_med_Alvin
             position.Y = startY - MathF.Abs(MathF.Sin(t))*20;
             position.X += 150 * 0.01666666f;
             hitbox.Location = position.ToPoint();
-
         }
         public void Draw(SpriteBatch spriteBatch){
             spriteBatch.Draw(texture, hitbox, Color.White);
