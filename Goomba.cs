@@ -1,6 +1,8 @@
+using System;
 using System.Drawing;
 using System.Numerics;
 using Microsoft.Xna.Framework.Graphics;
+using SharpDX;
 
 namespace TEst_med_Alvin
 {
@@ -16,8 +18,10 @@ namespace TEst_med_Alvin
 
         public Goomba(Texture2D texture){
             this.texture = texture;
-            hitbox = new Microsoft.Xna.Framework.Rectangle(800,300,50,50);
+            hitbox = new Microsoft.Xna.Framework.Rectangle(-5000,300,50,50);
             position = hitbox.Location.ToVector2();
+            Random rand = new Random();
+            position.X = rand.NextFloat(500, 2000);
         }
 
         public void Update(){

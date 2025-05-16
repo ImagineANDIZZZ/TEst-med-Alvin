@@ -163,7 +163,8 @@ public class Game1 : Game
             Platforms.Add(new Platform (brickTexture,new Vector2(-20, 350),new Vector2(600,190),Vector2.Zero));
             Platforms.Add(new Platform (brickTexture,new Vector2(580, 350),new Vector2(600,190),Vector2.Zero));
             Platforms.Add(new Platform (brickTexture,new Vector2(1180, 350),new Vector2(600,190),Vector2.Zero));  
-            Platforms.Add(new Platform (brickTexture,new Vector2(-300, 250),new Vector2(600,300), new Vector2(brickTexture.Width,brickTexture.Height)/2,MathHelper.PiOver2));      
+            Platforms.Add(new Platform (brickTexture,new Vector2(-370, 75),new Vector2(550,300), new Vector2(brickTexture.Width,brickTexture.Height)/2,MathHelper.PiOver2));  
+            Platforms.Add(new Platform (brickTexture,new Vector2(-670, 75),new Vector2(550,300), new Vector2(brickTexture.Width,brickTexture.Height)/2,MathHelper.PiOver2));    
     }
 
     private void playerPlatformcollision(){
@@ -177,8 +178,8 @@ public class Game1 : Game
 
     private void SpawnGoomba(){
         Random rand = new Random();
-        int value = rand.Next(1,200);
-        int spawnChanceProcent = 1;
+        int value = rand.Next(1,500);
+        int spawnChanceProcent = 2;
         if(value <= spawnChanceProcent)
             goombas.Add(new Goomba(Goomba));
     }
@@ -211,8 +212,8 @@ public class Game1 : Game
 
     private void SpawnBullet_Bill(){
         Random rand = new Random();
-        int value = rand.Next(1,200);
-        int spawnChanceProcent = 1;
+        int value = rand.Next(1,500);
+        int spawnChanceProcent = 2;
         if(value <= spawnChanceProcent)
             bullet_Bills.Add(new Bullet_Bill(Bullet_Bill));
     }

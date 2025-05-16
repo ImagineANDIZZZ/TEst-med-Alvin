@@ -11,7 +11,11 @@ namespace TEst_med_Alvin
         private Texture2D texture;
         private Rectangle hitbox;
          public Rectangle Hitbox{
-            get{return hitbox;}
+            get{
+                if(rotation ==0)
+                    return hitbox;
+                return new Rectangle(position.ToPoint() - new Point(hitbox.Height/2,hitbox.Width/2), new Point(hitbox.Height,hitbox.Width));
+            }
         }
         private float rotation = 0;
         private Vector2 rotationOrigo = Vector2.Zero;
