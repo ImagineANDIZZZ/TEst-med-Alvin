@@ -8,6 +8,7 @@
     <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/../../../../Downloads/Cloud.png</File>
     <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/Brick.png</File>
     <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/BrickPlatform.png</File>
+    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/BrickPlatform2.jpg</File>
     <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/bullet-bill.png</File>
     <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/fireball.png</File>
     <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/Goomba.png</File>
@@ -19,6 +20,7 @@
   <DestFiles>
     <File>Brick.png</File>
     <File>Cloud.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
