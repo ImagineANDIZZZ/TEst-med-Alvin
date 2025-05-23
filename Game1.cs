@@ -60,8 +60,10 @@ public class Game1 : Game
         Fireball = Content.Load<Texture2D>("Fireball");
         AddBricks();
         AddClouds();
+        AddPlatform();
         theme = Content.Load<Song>("theme");
         MediaPlayer.Play(theme);
+        MediaPlayer.IsRepeating = true;
         Goomba = Content.Load<Texture2D>("Goomba");
         Bullet_Bill = Content.Load<Texture2D>("bullet-bill");
         player = new Player(Supermario, new Vector2(380, 350), 50, effect, Fireball);
@@ -73,11 +75,11 @@ public class Game1 : Game
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
-
         player.Update();
         playerbrickcollision();
         playercloudcollision();
         base.Update(gameTime);
+        
         foreach (Goomba goomba in goombas)
         {
             goomba.Update();
@@ -85,7 +87,7 @@ public class Game1 : Game
         GoombaFireballCollision();
         GoombaSupermariolCollision();
         SpawnGoomba();
-
+        
         foreach (Bullet_Bill bullet_Bill in bullet_Bills)
         {
             bullet_Bill.Update();
@@ -94,7 +96,7 @@ public class Game1 : Game
         Bullet_BillSupermariolCollision();
         SpawnBullet_Bill();
 
-        AddPlatform();
+        //AddPlatform();
         playerPlatformcollision();
         cam.UpdateCamera(GraphicsDevice.Viewport, player.Hitbox.Location.ToVector2());
         RemoveGoombas();
@@ -143,6 +145,17 @@ public class Game1 : Game
         boxar.Add(new Brick(brick, new Vector2(540, 240), new Vector2(40, 40)));
         boxar.Add(new Brick(brick, new Vector2(660, 240), new Vector2(40, 40)));
         boxar.Add(new Brick(brick, new Vector2(700, 240), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(1370, -10), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(1740, 30), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(1740, 70), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(1740, 110), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(1740, 150), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(1700, 150), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(1740, 190), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(1740, 230), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(1740, 270), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(2000, 190), new Vector2(40, 40)));
+        boxar.Add(new Brick(brick, new Vector2(2040, 190), new Vector2(40, 40)));
     }
 
     private void playerbrickcollision()
@@ -158,11 +171,16 @@ public class Game1 : Game
 
     private void AddClouds()
     {
-        clouds.Add(new Cloud(cloud, new Vector2(450, 20), new Vector2(60, 60)));
         clouds.Add(new Cloud(cloud, new Vector2(40, 80), new Vector2(60, 60)));
         clouds.Add(new Cloud(cloud, new Vector2(720, 80), new Vector2(60, 60)));
-    }
+        clouds.Add(new Cloud(cloud, new Vector2(450, 20), new Vector2(60, 60)));
+        clouds.Add(new Cloud(cloud, new Vector2(570, -148), new Vector2(60, 60)));
+        clouds.Add(new Cloud(cloud, new Vector2(720, -290), new Vector2(60, 60)));
+        clouds.Add(new Cloud(cloud, new Vector2(870, -148), new Vector2(60, 60)));
+        clouds.Add(new Cloud(cloud, new Vector2(1176, -148), new Vector2(60, 60)));
 
+    }
+    
     private void playercloudcollision()
     {
         foreach (Cloud c in clouds)
@@ -173,13 +191,14 @@ public class Game1 : Game
             }
         }
     }
-
+        
     private void AddPlatform()
     {
         Platforms.Add(new Platform(brickTexture, new Vector2(-620, 350), new Vector2(600, 190), Vector2.Zero));
         Platforms.Add(new Platform(brickTexture, new Vector2(-20, 350), new Vector2(600, 190), Vector2.Zero));
         Platforms.Add(new Platform(brickTexture, new Vector2(580, 350), new Vector2(600, 190), Vector2.Zero));
         Platforms.Add(new Platform(brickTexture, new Vector2(1180, 350), new Vector2(600, 190), Vector2.Zero));
+        Platforms.Add(new Platform(brickTexture, new Vector2(1780, 350), new Vector2(600, 190), Vector2.Zero));
         Platforms.Add(new Platform(brickTexture, new Vector2(-370, 75), new Vector2(550, 300), new Vector2(brickTexture.Width, brickTexture.Height) / 2, MathHelper.PiOver2));
         Platforms.Add(new Platform(brickTexture, new Vector2(-670, 75), new Vector2(550, 300), new Vector2(brickTexture.Width, brickTexture.Height) / 2, MathHelper.PiOver2));
     }

@@ -48,19 +48,25 @@ namespace TEst_med_Alvin
                 velocity.X = 3;
             }
             if(Kstate.IsKeyDown(Keys.Space)){
-                if(canJump){
+                if (canJump){
                     Jump();
                     jumpsound.Play();
                 }
             }
-            if(position.Y > 300){
+            
+            position += velocity;
+            velocity.Y += GRAVITY * 1f/60f;
+
+            canJump = false;
+            if (position.Y > 300)
+            {
                 velocity.Y = 0;
                 position.Y = 300;
                 canJump = true;
             }
-            position += velocity;
-            velocity.Y += GRAVITY * 1f/60f; 
             hitbox.Location = position.ToPoint();
+
+                
             Shoot();
 
             foreach(Fireball f in fireballs){

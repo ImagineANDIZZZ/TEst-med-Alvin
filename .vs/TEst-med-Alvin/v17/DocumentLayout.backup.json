@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Documents\\GitHub\\TEst-med-Alvin\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BCCA8A49-B4A4-453C-AA65-8BA30FDF10B9}|TEst-med-Alvin.csproj|c:\\users\\admin\\documents\\github\\test-med-alvin\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCCA8A49-B4A4-453C-AA65-8BA30FDF10B9}|TEst-med-Alvin.csproj|solutionrelative:game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCCA8A49-B4A4-453C-AA65-8BA30FDF10B9}|TEst-med-Alvin.csproj|c:\\users\\admin\\documents\\github\\test-med-alvin\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCCA8A49-B4A4-453C-AA65-8BA30FDF10B9}|TEst-med-Alvin.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BCCA8A49-B4A4-453C-AA65-8BA30FDF10B9}|TEst-med-Alvin.csproj|c:\\users\\admin\\documents\\github\\test-med-alvin\\brick.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCCA8A49-B4A4-453C-AA65-8BA30FDF10B9}|TEst-med-Alvin.csproj|solutionrelative:brick.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,11 +22,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\TEst-med-Alvin\\Player.cs",
+              "RelativeDocumentMoniker": "Player.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\TEst-med-Alvin\\Player.cs",
+              "RelativeToolTip": "Player.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAADgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T10:46:15.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\TEst-med-Alvin\\Game1.cs",
+              "RelativeDocumentMoniker": "Game1.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\TEst-med-Alvin\\Game1.cs",
+              "RelativeToolTip": "Game1.cs",
+              "ViewState": "AgIAALAAAAAAAAAAAAAqwMEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:45:42.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Brick.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\TEst-med-Alvin\\Brick.cs",
               "RelativeDocumentMoniker": "Brick.cs",
