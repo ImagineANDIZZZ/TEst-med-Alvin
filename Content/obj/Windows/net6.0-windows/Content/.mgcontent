@@ -4,20 +4,16 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/../../../../Downloads/Brick.png</File>
-    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/../../../../Downloads/Cloud.png</File>
-    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/Brick.png</File>
-    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/BrickPlatform.png</File>
-    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/fireball.png</File>
-    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/Goomba.png</File>
-    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/grass.jpg</File>
-    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/jump_07.wav</File>
-    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/supermario.png</File>
-    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/theme.ogg</File>
+    <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/Brick.png</File>
+    <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/BrickPlatform.png</File>
+    <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/fireball.png</File>
+    <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/Goomba.png</File>
+    <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/grass.jpg</File>
+    <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/jump_07.wav</File>
+    <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/supermario.png</File>
+    <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/theme.ogg</File>
   </SourceFiles>
   <DestFiles>
-    <File>Brick.png</File>
-    <File>Cloud.png</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

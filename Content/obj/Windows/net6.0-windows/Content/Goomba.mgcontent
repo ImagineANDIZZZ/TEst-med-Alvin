@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/Goomba.png</SourceFile>
-  <SourceTime>2025-04-09T09:16:16.4199134+02:00</SourceTime>
-  <DestFile>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/bin/Windows/Content/Goomba.xnb</DestFile>
-  <DestTime>2025-04-09T09:55:21.0467929+02:00</DestTime>
+  <SourceFile>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/Goomba.png</SourceFile>
+  <SourceTime>2025-04-30T19:09:53.7635542+02:00</SourceTime>
+  <DestFile>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/bin/Windows/Content/Goomba.xnb</DestFile>
+  <DestTime>2025-04-30T19:10:36.3804258+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
