@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
-  <SourceFile>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/Brick.png</SourceFile>
-  <SourceTime>2025-04-30T19:09:53.7410377+02:00</SourceTime>
-  <DestFile>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/bin/Windows/Content/Brick.xnb</DestFile>
-  <DestTime>2025-04-30T19:10:36.2669319+02:00</DestTime>
-=======
-  <SourceFile>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/Brick.png</SourceFile>
-  <SourceTime>2025-04-23T10:50:36.9251473+02:00</SourceTime>
-  <DestFile>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/bin/Windows/Content/Brick.xnb</DestFile>
-  <DestTime>2025-05-23T13:56:34.962717+02:00</DestTime>
->>>>>>> 93f69e4137d1c382a205b26f100165129cab5c9a
+  <SourceFile>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/BrickPlatform2.jpg</SourceFile>
+  <SourceTime>2025-05-21T11:03:43.8276575+02:00</SourceTime>
+  <DestFile>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/bin/Windows/Content/BrickPlatform2.xnb</DestFile>
+  <DestTime>2025-05-21T11:05:08.1811145+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

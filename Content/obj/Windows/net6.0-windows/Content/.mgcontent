@@ -4,6 +4,7 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+<<<<<<< HEAD
     <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/Brick.png</File>
     <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/BrickPlatform.png</File>
     <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/fireball.png</File>
@@ -12,8 +13,24 @@
     <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/jump_07.wav</File>
     <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/supermario.png</File>
     <File>C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/theme.ogg</File>
+=======
+    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/../../../../Downloads/Brick.png</File>
+    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/../../../../Downloads/Cloud.png</File>
+    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/Brick.png</File>
+    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/BrickPlatform.png</File>
+    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/BrickPlatform2.jpg</File>
+    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/bullet-bill.png</File>
+    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/fireball.png</File>
+    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/Goomba.png</File>
+    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/grass.jpg</File>
+    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/jump_07.wav</File>
+    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/supermario.png</File>
+    <File>C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/theme.ogg</File>
+>>>>>>> 93f69e4137d1c382a205b26f100165129cab5c9a
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

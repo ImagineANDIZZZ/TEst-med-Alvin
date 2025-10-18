@@ -6,7 +6,7 @@ using SharpDX;
 
 namespace TEst_med_Alvin
 {
-    public class Goomba
+    public class Bullet_Bill
     {
         private Texture2D texture;
         private Microsoft.Xna.Framework.Vector2 position;
@@ -16,16 +16,16 @@ namespace TEst_med_Alvin
         }
 
 
-        public Goomba(Texture2D texture){
+        public Bullet_Bill(Texture2D texture){
             this.texture = texture;
-            hitbox = new Microsoft.Xna.Framework.Rectangle(500000,300,50,50);
+            hitbox = new Microsoft.Xna.Framework.Rectangle(500000,50,50,50);
             position = hitbox.Location.ToVector2();
             Random rand = new Random();
             position.X = rand.NextFloat(500, 2000);
         }
 
         public void Update(){
-            float speed = 35;
+            float speed = 60;
             position.X -= speed *1/60f;
             hitbox.Location = position.ToPoint();
         }

@@ -1,4 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+<<<<<<< HEAD
 "C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/Brick.png","C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/bin/Windows/Content/Brick.xnb","TextureProcessor","Texture2DContent",7730,641685,0,2413571
 "C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/BrickPlatform.png","C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/bin/Windows/Content/BrickPlatform.xnb","TextureProcessor","Texture2DContent",236609,502405,0,0302928
 "C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/fireball.png","C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/bin/Windows/Content/fireball.xnb","TextureProcessor","Texture2DContent",3554,201685,0,0120112
@@ -7,3 +8,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/jump_07.wav","C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/bin/Windows/Content/jump_07.xnb","SoundEffectProcessor","SoundEffectContent",23878,23939,0,5218879
 "C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/supermario.png","C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/bin/Windows/Content/supermario.xnb","TextureProcessor","Texture2DContent",555,460685,0,033887
 "C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/theme.ogg","C:/Users/divan/OneDrive/Dokument/GitHub/uppgift-2-tabeller/TEst-med-Alvin/Content/bin/Windows/Content/theme.xnb","SongProcessor","SongContent",6867461,123,3,5028627
+=======
+"C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/../../../../Downloads/Brick.png","C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/bin/Windows/Content/Brick.xnb","TextureProcessor","Texture2DContent",7730,641685,0,2380202
+"C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/Brick.png","C:/Users/Admin/Documents/GitHub/TEst-med-Alvin/Content/bin/Windows/Content/Brick.xnb","TextureProcessor","Texture2DContent",7730,641685,0,0203028
+>>>>>>> 93f69e4137d1c382a205b26f100165129cab5c9a

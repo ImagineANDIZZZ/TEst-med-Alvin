@@ -46,3 +46,5 @@ C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\
 C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\BrickPlatform.xnb
 C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\grass.xnb
 C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\Cloud.xnb
+C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\bullet-bill.xnb
+C:\Users\Admin\Documents\GitHub\TEst-med-Alvin\bin\Debug\net6.0-windows\Content\BrickPlatform2.xnb
